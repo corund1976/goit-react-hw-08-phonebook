@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://goit-react-hw-07-phonebo-3e645-default-rtdb.europe-west1.firebasedatabase.app/';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
 export async function getContactsAPI() {
   const { data } = await axios.get("/contacts.json");
