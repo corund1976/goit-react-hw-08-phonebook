@@ -55,7 +55,7 @@ function ContactForm() {
       autoComplete="off">
       
       <label className={s.label}>
-        Name
+        Имя
         <input
           name="name"
           type="text"
@@ -69,7 +69,7 @@ function ContactForm() {
       </label>
 
       <label className={s.label}>
-        Number
+        Номер телефона
         <input
           name="number"
           type="tel"
@@ -82,7 +82,7 @@ function ContactForm() {
         />
       </label>        
 
-      <button type="submit" className={s.btn}>Add contact</button>
+      <button type="submit" className={s.btn}>Добавить контакт</button>
     </form>
   );
 };

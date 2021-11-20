@@ -18,12 +18,11 @@ export default function ContactsPage(params) {
   return (
     <Container>
       <Section>
-        <h1>Phonebook</h1>
         <ContactForm />
       </Section>
       
       <Section>
-        <h2>Contacts</h2>
+        <h2>Контакты</h2>
         <Filter />
         <ContactList />
       </Section>

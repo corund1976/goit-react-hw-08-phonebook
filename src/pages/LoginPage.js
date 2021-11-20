@@ -38,7 +38,7 @@ export default function LoginPage() {
 
   return (
     <div>
-      <h1>Страница логина</h1>
+      <h1>Страница авторизации</h1>
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
         <label style={styles.label}>
