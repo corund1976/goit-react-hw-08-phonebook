@@ -3,40 +3,46 @@
 1. Устанавливаем Create React App (в текущей папке, которая открыта в VSCode)
    npx create-react-app .
 
-2. В package.json добавляем после 3ей строки "private" св-во "homepage"
-   (перед "dependencies") со своими значениями
-   ("homepage": "https://corund1976.github.io/goit-react-hw-07-phonebook",)
-   "homepage": "https://myusername.github.io/my-app"
+2. Копируем исходники с предыдущего проектка в папку src
 
-3. Добавляем 2 новых скрипта в package.json
-   "scripts": {
-   "predeploy": "npm run build",
-   "deploy": "gh-pages -d build",
-
-4. Добавляем пакет gh-pages для автоматического деплоя приложения
-   npm install --save gh-pages или
-   yarn add gh-pages
-
-5. Копируем исходник (папку src) и Запускаем деплой
-   npm run deploy
-
-6. Устанавливаем Redux Toolkit (ранее назывался "Redux Starter Kit")
+3. Устанавливаем Redux Toolkit (ранее назывался "Redux Starter Kit")
    npm install @reduxjs/toolkit или
    yarn add @reduxjs/toolkit
 
-7. Устанавливаем redux-persist
+4. Устанавливаем redux-persist
    npm i redux-persist
    yarn add redux-persist
 
-8. Устанавливаем React Redux для связи React с Redux
+5. Устанавливаем React Redux для связи React с Redux
    npm i react-redux или
    yarn add react-redux
 
-9. Устанавливаем axios
+6. Устанавливаем axios
    npm i axios
-10. Устанавливаем react-router
-    npm i react-router
 
-11. Запускаем проект локально
-    npm start или
-    yarn start
+7. Устанавливаем react-router более ранней верси !!!!! ВАЖНО !!!!!
+   npm i react-router-dom@5.3.0
+
+Или все 5 одной командой
+npm i @reduxjs/toolkit redux-persist react-redux react-router-dom@5.3.0 axios
+
+8. Запускаем проект локально
+   npm start или
+   yarn start
+
+Для деплоя на GitHub Pages: 9. В package.json добавляем после 3ей строки "private" св-во "homepage"
+(перед "dependencies") со своими значениями
+("homepage": "https://corund1976.github.io/goit-react-hw-07-phonebook",)
+"homepage": "https://myusername.github.io/my-app"
+
+10. Добавляем 2 новых скрипта в package.json
+    "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+
+11. Добавляем пакет gh-pages для автоматического деплоя приложения
+    npm install --save gh-pages или
+    yarn add gh-pages
+
+12. Запускаем деплой
+    npm run deploy

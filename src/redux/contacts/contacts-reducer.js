@@ -1,7 +1,7 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
 
-import { changeFilter } from './contactsActions';
-import { getContacts, addContact, deleteContact } from './contactsOperations';
+import { changeFilter } from './contacts-actions';
+import contactsOperations from './contacts-operations';
 
 const initialState = {
   contacts: {
@@ -12,9 +12,9 @@ const initialState = {
 };
   
 const contactsItemsReducer = createReducer(initialState.contacts.items, {
-  [getContacts.fulfilled]: (_, { payload }) => payload,
-  [addContact.fulfilled]: (state, { payload }) => [...state, payload],
-  [deleteContact.fulfilled]: (state, { payload }) => state.filter(({ id }) => id !== payload),
+  [contactsOperations.getContacts.fulfilled]: (_, { payload }) => payload,
+  [contactsOperations.addContact.fulfilled]: (state, { payload }) => [...state, payload],
+  [contactsOperations.deleteContact.fulfilled]: (state, { payload }) => state.filter(({ id }) => id !== payload),
 });
 
 const contactsFilterReducer = createReducer(initialState.contacts.filter, {
@@ -22,12 +22,12 @@ const contactsFilterReducer = createReducer(initialState.contacts.filter, {
 });
 
 const contactsErrorReducer = createReducer(initialState.contacts.error, {
-  [getContacts.rejected]: (_, { payload }) => payload,
-  [getContacts.pending]: () => null, //стираем ошибку, чтоб не висела перед глазами всё время
-  [addContact.rejected]: (_, { payload }) => payload,
-  [addContact.pending]: () => null,
-  [deleteContact.rejected]: (_, { payload }) => payload,
-  [deleteContact.pending]: () => null,
+  [contactsOperations.getContacts.rejected]: (_, { payload }) => payload,
+  [contactsOperations.getContacts.pending]: () => null, //стираем ошибку, чтоб не висела перед глазами всё время
+  [contactsOperations.addContact.rejected]: (_, { payload }) => payload,
+  [contactsOperations.addContact.pending]: () => null,
+  [contactsOperations.deleteContact.rejected]: (_, { payload }) => payload,
+  [contactsOperations.deleteContact.pending]: () => null,
 });
 
 export default combineReducers({

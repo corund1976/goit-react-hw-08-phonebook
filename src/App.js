@@ -7,13 +7,13 @@ import Section from './components/Section';
 import ContactForm from './components/ContactForm';
 import Filter from './components/Filter';
 import ContactList from './components/ContactList';
-import { getContacts } from './redux/contacts/contactsOperations';
+import { contactsOperations } from './redux/contacts';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getContacts());
+    dispatch(contactsOperations.getContacts());
   }, [dispatch]);
 
   return (
