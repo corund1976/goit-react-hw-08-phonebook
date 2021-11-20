@@ -1,4 +1,7 @@
 import { createAction } from '@reduxjs/toolkit';
+
+export const changeFilter = createAction('contacts/ChangeFilter');
+
 // После использования createAsyncThunk() пришлось закомментировать
 // export const getContactsRequest = createAction('contacts/getContactsRequest');
 // export const getContactsSuccess = createAction('contacts/getContactsSuccess');
@@ -11,5 +14,3 @@ import { createAction } from '@reduxjs/toolkit';
 // export const deleteContactRequest = createAction('contacts/deleteContactRequest');
 // export const deleteContactSuccess = createAction('contacts/deleteContactSuccess');
 // export const deleteContactError = createAction('contacts/deleteContactError');
-
-export const changeFilter = createAction('contacts/ChangeFilter');

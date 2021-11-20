@@ -1,19 +1,11 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER
-} from 'redux-persist';
+import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import contactsReducer from './contacts/contactsReducer';
+import { contactsReducer } from './contacts/contactsReducer';
+import { authReducer } from './auth/authReducer';
 
-const middleWare = [
+const middleware = [
   ...getDefaultMiddleware({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
@@ -21,20 +13,26 @@ const middleWare = [
   })
 ];
 
-const contactsPersistConfig = {
-  key: 'root',
+const authPersistConfig = {
+  key: 'auth',
   storage,
-  blacklist: ['filter'],
-}
+  whitelist: ['token'],
+};
  
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    contacts: persistReducer(contactsPersistConfig, contactsReducer),
+    auth: persistReducer(authPersistConfig, authReducer),
+    contacts: contactsReducer,
   },
-  middleWare: middleWare,
+  middleWare: middleware,
   devTools: process.env.NODE_ENV === 'development',
 });
 
-const persistor = persistStore(store);
+export const persistor = persistStore(store);
 
-export default { store, persistor };
+// Старый storsge на persistе для контактов
+// const contactsPersistConfig = {
+//   key: 'root',
+//   storage,
+//   blacklist: ['filter'],
+// }
