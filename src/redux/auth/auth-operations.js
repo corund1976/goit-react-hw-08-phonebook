@@ -64,7 +64,7 @@ const logOut = createAsyncThunk('auth/logout', async () => {
  * 2. Если токена нет, выходим не выполняя никаких операций
  * 3. Если токен есть, добавляет его в HTTP-заголовок и выполянем операцию
  */
-const fetchCurrentUser = createAsyncThunk(
+const getCurrentUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
@@ -89,6 +89,6 @@ const authOperations = {
   register,
   logOut,
   logIn,
-  fetchCurrentUser,
+  getCurrentUser,
 };
 export default authOperations;
