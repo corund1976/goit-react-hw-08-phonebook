@@ -10,7 +10,7 @@ const middleware = [
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
-  })
+  }),
 ];
 
 const authPersistConfig = {
@@ -30,7 +30,7 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
-// Старый storsge на persistе для контактов
+// Старый storage на persistе для контактов
 // const contactsPersistConfig = {
 //   key: 'root',
 //   storage,

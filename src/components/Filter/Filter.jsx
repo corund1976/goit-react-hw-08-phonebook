@@ -12,7 +12,7 @@ function Filter() {
 
   return (
     <label className={s.label}>
-      Найти по имени / номеру
+      Find by name / phone
       <input
         type="text"
         value={filterToFilter}

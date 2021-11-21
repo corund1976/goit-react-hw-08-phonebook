@@ -14,7 +14,7 @@ const styles = {
   },
 };
 
-export default function AuthNav() {
+function AuthNav() {
   return (
     <div>
       <NavLink
@@ -23,16 +23,19 @@ export default function AuthNav() {
         style={styles.link}
         activeStyle={styles.activeLink}
       >
-        Регистрация
+        Register
       </NavLink>
+
       <NavLink
         to="/login"
         exact
         style={styles.link}
         activeStyle={styles.activeLink}
       >
-        Логин
+        Login
       </NavLink>
     </div>
   );
-}
+};
+
+export default AuthNav;

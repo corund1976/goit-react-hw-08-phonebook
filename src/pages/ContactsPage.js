@@ -17,15 +17,16 @@ export default function ContactsPage(params) {
 
   return (
     <Container>
-      <Section>
-        <ContactForm />
-      </Section>
       
       <Section>
-        <h2>Контакты</h2>
         <Filter />
         <ContactList />
       </Section>
+
+      <Section>
+        <ContactForm />
+      </Section>
+
     </Container>
   );
 };

@@ -1,33 +1,67 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
+import { useEffect, Suspense, lazy  } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Switch } from 'react-router-dom';
+import Loader from 'react-loader-spinner';
 
 import Container from './components/Container';
+import Section from './components/Section';
 import AppBar from './components/AppBar';
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
+import { authOperations, authSelectors } from './redux/auth';
 
-import ContactsPage from './pages/ContactsPage';
-import HomePage from './pages/HomePage';
-import RegisterPage from './pages/RegisterPage';
-import LoginPage from './pages/LoginPage';
-
-import { authOperations } from './redux/auth';
+const HomePage = lazy(() => import('./pages/HomePage'));
+const RegisterPage = lazy(() => import('./pages/RegisterPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage'));
+const ContactsPage = lazy(() => import('./pages/ContactsPage'));
 
 function App() {
+  const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
   const dispatch = useDispatch();
 
   useEffect(() =>
-    dispatch(authOperations.getCurrentUser()), [dispatch]);
+    dispatch(authOperations.fetchCurrentUser()), [dispatch]);
 
   return (
     <Container>
-      <AppBar />
+      {isFetchingCurrentUser ? (
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Loader type="Rings" color="#00BFFF" height={200} width={200} />
+        </div>
+      ) : (
+        <Section>
+          <AppBar />
+            
+          <Suspense fallback={
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <Loader type="Rings" color="#00BFFF" height={100} width={100} />
+            </div>
+          }>
 
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/register" component={RegisterPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/contacts" component={ContactsPage} />
-      </Switch>
+            <Switch>
+                  
+              <PublicRoute exact path="/">
+                <HomePage />
+              </PublicRoute>
+                  
+              <PublicRoute exact path="/register" restricted>
+                <RegisterPage />
+              </PublicRoute>
+              
+              <PublicRoute exact path="/login" redirectTo="/contacts" restricted>
+                <LoginPage />
+              </PublicRoute>
+              
+              <PrivateRoute path="/contacts" redirectTo="/login">
+                <ContactsPage />
+              </PrivateRoute>
+                  
+            </Switch>
+              
+          </Suspense>
+            
+        </Section>
+      )}
     </Container>
   );
 };

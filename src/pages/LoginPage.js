@@ -40,7 +40,7 @@ export default function LoginPage() {
     <div>
       <h1>Страница авторизации</h1>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
+      <form onSubmit={handleSubmit} style={styles.form} autoComplete="on">
         <label style={styles.label}>
           Почта
           <input

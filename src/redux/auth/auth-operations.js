@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 const token = {
   set(token) {
@@ -19,9 +19,11 @@ const token = {
  */
 const register = createAsyncThunk('auth/register', async credentials => {
   try {
+    console.log('credentials ', credentials);
     const { data } = await axios.post('/users/signup', credentials);
 
     token.set(data.token);
+    console.log('data = ', data);
     return data;
   } catch (error) {
       alert(error.message);
@@ -96,12 +98,12 @@ const logOut = createAsyncThunk('auth/logout', async () => {
  * 2. Если токена нет, выходим не выполняя никаких операций
  * 3. Если токен есть, добавляет его в HTTP-заголовок и выполянем операцию
  */
-const getCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
+const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
   const state = thunkAPI.getState();
   const persistedToken = state.auth.token;
 
   if (persistedToken === null) {
-    console.log('Токена нет, уходим из getCurrentUser');
+    console.log('Токена нет, уходим из fetchCurrentUser');
     return thunkAPI.rejectWithValue();
   }
 
@@ -119,7 +121,7 @@ const authOperations = {
   register,
   logOut,
   logIn,
-  getCurrentUser,
+  fetchCurrentUser,
 };
 export default authOperations;
 

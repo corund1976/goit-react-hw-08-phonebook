@@ -17,10 +17,11 @@ const styles = {
 const HomePage = () => (
   <div style={styles.container}>
     <h1 style={styles.title}>
-      Сервис "Телефонная книга" {' '}
-      <span role="img" aria-label="Иконка приветствия">
+      <span role="img" aria-label="hello icon">
         ☎
       </span>
+      {' '}
+      Application stores your phone contacts
     </h1>
   </div>
 );

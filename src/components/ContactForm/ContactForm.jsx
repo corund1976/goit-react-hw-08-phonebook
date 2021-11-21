@@ -52,10 +52,11 @@ function ContactForm() {
     <form
       onSubmit={handleSubmit} 
       className={s.form} 
-      autoComplete="off">
-      
+      autoComplete="on">
+      Add contact
+
       <label className={s.label}>
-        Имя
+        Name
         <input
           name="name"
           type="text"
@@ -69,7 +70,7 @@ function ContactForm() {
       </label>
 
       <label className={s.label}>
-        Номер телефона
+        Phone
         <input
           name="number"
           type="tel"
@@ -82,7 +83,7 @@ function ContactForm() {
         />
       </label>        
 
-      <button type="submit" className={s.btn}>Добавить контакт</button>
+      <button type="submit" className={s.btn}>Add new contact</button>
     </form>
   );
 };

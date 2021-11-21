@@ -1,15 +1,20 @@
+import { createSelector } from '@reduxjs/toolkit';
+
 const getItems = state => state.contacts.items;
 
 const getFilter = state => state.contacts.filter;
 
-const getVisibleContacts = ({ contacts: { items, filter } }) => {
-  const normalizedFilter = filter.trim().toLowerCase();
+const getVisibleContacts = createSelector(
+  [getItems, getFilter],
+  (items, filter) => {
+    const normalizedFilter = filter.trim().toLowerCase();
 
-  return items.filter(({ name, number }) =>
-    name.toLowerCase().includes(normalizedFilter) ||
-    number.includes(filter.trim())
+    return items.filter(({ name, number }) =>
+      name.toLowerCase().includes(normalizedFilter) ||
+      number.includes(filter.trim())
   );
-};
+  },
+);
 
 const contactsSelectors = {
   getItems,

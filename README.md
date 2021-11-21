@@ -26,23 +26,44 @@
 Или все 5 одной командой
 npm i @reduxjs/toolkit redux-persist react-redux react-router-dom@5.3.0 axios
 
-8. Запускаем проект локально
-   npm start или
-   yarn start
+8.  Запускаем проект локально
+    npm start или
+    yarn start
 
-Для деплоя на GitHub Pages: 9. В package.json добавляем после 3ей строки "private" св-во "homepage"
-(перед "dependencies") со своими значениями
-("homepage": "https://corund1976.github.io/goit-react-hw-07-phonebook",)
-"homepage": "https://myusername.github.io/my-app"
+9.  Loader react-loader-spinner
+    npm install react-loader-spinner --save
+    yarn add react-loader-spinner
 
-10. Добавляем 2 новых скрипта в package.json
-    "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+xxxxxxxxxxxxxxxxxxxxxxxxxxx
+Деплой Netlify
 
-11. Добавляем пакет gh-pages для автоматического деплоя приложения
-    npm install --save gh-pages или
-    yarn add gh-pages
+1.Создать файл netlify.toml
+[build]
+publish = "build"
 
-12. Запускаем деплой
-    npm run deploy
+[[redirects]]
+from = "/\*"
+to = "/index.html"
+status = 200
+
+2.Установить набор инструментов Netlify
+npm install netlify -cli -g или
+yarn add netlify-cli
+
+3.Подтверждаем авторизацию
+netlify login
+и в открывшемся браузере нажимаем Authorize
+
+4.В package.json а scripts добавляем 2 строки:
+"predeploy": "npm run build",
+"deploy": "netlify deploy -p"
+
+5.Стрелками на клавиатуре подтверждаем выбор
+2х пунктов последовательно
+
+6. Получаем ссылку на Live URL
+   Website URL: https://corund1976-goit-react-hw-05-movies.netlify.app
+
+7.После обновления приложения перед загрузкой на хостинг
+каждый раз запускаем
+npm run deploy
