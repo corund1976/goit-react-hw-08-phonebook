@@ -13,7 +13,7 @@ const styles = {
   },
 };
 
-export default function LoginPage() {
+function LoginPage() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -65,4 +65,6 @@ export default function LoginPage() {
       </form>
     </div>
   );
-}
+};
+
+export default LoginPage;

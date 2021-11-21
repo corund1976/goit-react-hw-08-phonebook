@@ -113,7 +113,7 @@ const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) =>
     const { data } = await axios.get('/users/current');
     return data;
   } catch (error) {
-    // TODO: Добавить обработку ошибки error.message
+      alert(error.message);
   }
 });
 

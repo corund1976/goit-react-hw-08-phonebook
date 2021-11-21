@@ -13,7 +13,7 @@ const styles = {
   },
 };
 
-export default function RegisterPage() {
+function RegisterPage() {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -74,4 +74,6 @@ export default function RegisterPage() {
       </form>
     </div>
   );
-}
+};
+
+export default RegisterPage;
