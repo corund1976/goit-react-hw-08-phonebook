@@ -67,3 +67,20 @@ netlify login
 7.После обновления приложения перед загрузкой на хостинг
 каждый раз запускаем
 npm run deploy
+
+хххххххххххххххххххххххх
+Абсолютные импорты
+https://create-react-app.dev/docs/importing-a-component/#absolute-imports
+
+1. создаем jsconfig.json
+2. наполняем, указываем относительный корень, например "src"
+   {
+   "compilerOptions": {
+   "baseUrl": "src"
+   },
+   "include": ["src"]
+   }
+3. теперь при импортах указываем короткий путь,
+   относительно "src"
+   вместо пути src/components/Button.js теперь пишем
+   import Button from 'components/Button';

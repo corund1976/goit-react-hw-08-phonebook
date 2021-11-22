@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import s from './Contact.module.css';
-import { contactsOperations } from '../../redux/contacts';
+import { contactsOperations } from 'redux/contacts';
 
 function Contact({ name, number, id }) {
   const dispatch = useDispatch();

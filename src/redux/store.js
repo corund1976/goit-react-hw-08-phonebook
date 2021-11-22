@@ -29,10 +29,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-
-// Старый storage на persistе для контактов
-// const contactsPersistConfig = {
-//   key: 'root',
-//   storage,
-//   blacklist: ['filter'],
-// }

@@ -3,17 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Switch } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 
-import Container from './components/Container';
-import Section from './components/Section';
-import AppBar from './components/AppBar';
-import PrivateRoute from './components/PrivateRoute';
-import PublicRoute from './components/PublicRoute';
-import { authOperations, authSelectors } from './redux/auth';
+import Container from 'components/Container';
+import Section from 'components/Section';
+import AppBar from 'components/AppBar';
+import PrivateRoute from 'components/PrivateRoute';
+import PublicRoute from 'components/PublicRoute';
+import { authOperations, authSelectors } from 'redux/auth';
 
-const HomePage = lazy(() => import('./pages/HomePage'));
-const RegisterPage = lazy(() => import('./pages/RegisterPage'));
-const LoginPage = lazy(() => import('./pages/LoginPage'));
-const ContactsPage = lazy(() => import('./pages/ContactsPage'));
+const HomePage = lazy(() => import('pages/HomePage'));
+const RegisterPage = lazy(() => import('pages/RegisterPage'));
+const LoginPage = lazy(() => import('pages/LoginPage'));
+const ContactsPage = lazy(() => import('pages/ContactsPage'));
 
 function App() {
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);

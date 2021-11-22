@@ -3,7 +3,7 @@ import { createSelector } from '@reduxjs/toolkit';
 const getItems = state => state.contacts.items;
 
 const getFilter = state => state.contacts.filter;
-
+// Мемоизация селектора
 const getVisibleContacts = createSelector(
   [getItems, getFilter],
   (items, filter) => {

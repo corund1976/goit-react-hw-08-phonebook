@@ -4,7 +4,7 @@ import Navigation from './Navigation';
 import UserMenu from './UserMenu';
 import AuthNav from './AuthNav';
 
-import { authSelectors } from '../redux/auth';
+import { authSelectors } from 'redux/auth';
 
 const styles = {
   header: {
