@@ -27,14 +27,25 @@ const Navigation = () => {
       </NavLink>
 
       {isLoggedIn && (
-        <NavLink
-          to="/contacts"
-          exact
-          style={styles.link}
-          activeStyle={styles.activeLink}
-        >
-          Phonebook
-        </NavLink>
+        <>
+          <NavLink
+            to="/contacts"
+            exact
+            style={styles.link}
+            activeStyle={styles.activeLink}
+          >
+            Contacts
+          </NavLink>
+
+          <NavLink
+            to="/edit"
+            exact
+            style={styles.link}
+            activeStyle={styles.activeLink}
+          >
+            Add / edit
+          </NavLink>
+        </>
       )}
 
     </nav>

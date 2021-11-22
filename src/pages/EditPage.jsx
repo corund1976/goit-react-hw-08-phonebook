@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import Container from '../components/Container';
 import Section from '../components/Section';
-import Filter from '../components/Filter';
-import ContactList from '../components/ContactList';
+import ContactForm from '../components/ContactForm';
 
 import { contactsOperations, } from '../redux/contacts';
 
@@ -17,8 +16,7 @@ export default function ContactsPage(params) {
   return (
     <Container>
       <Section>
-        <Filter />
-        <ContactList />
+        <ContactForm />
       </Section>
     </Container>
   );

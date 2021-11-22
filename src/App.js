@@ -14,6 +14,7 @@ const HomePage = lazy(() => import('pages/HomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage'));
+const EditPage = lazy(() => import('pages/EditPage'));
 
 function App() {
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
@@ -54,6 +55,10 @@ function App() {
               
               <PrivateRoute path="/contacts" redirectTo="/login">
                 <ContactsPage />
+                </PrivateRoute>
+                
+              <PrivateRoute path="/edit" redirectTo="/login">
+                <EditPage />
               </PrivateRoute>
                   
             </Switch>
