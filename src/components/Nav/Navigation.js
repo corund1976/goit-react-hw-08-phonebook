@@ -29,7 +29,7 @@ const Navigation = () => {
       {isLoggedIn && (
         <>
           <NavLink
-            to="/contacts"
+            to="/contactslist"
             exact
             style={styles.link}
             activeStyle={styles.activeLink}
@@ -38,12 +38,12 @@ const Navigation = () => {
           </NavLink>
 
           <NavLink
-            to="/edit"
+            to="/contactform"
             exact
             style={styles.link}
             activeStyle={styles.activeLink}
           >
-            Add / edit
+            Add new
           </NavLink>
         </>
       )}

@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import Container from '../components/Container';
-import Section from '../components/Section';
-import Filter from '../components/Filter';
-import ContactList from '../components/ContactList';
+import Container from 'components/Container';
+import Section from 'components/Section';
+import Filter from 'components/Filter';
+import ContactList from 'components/ContactList';
 
-import { contactsOperations, } from '../redux/contacts';
+import { contactsOperations, } from 'redux/contacts';
 
-export default function ContactsPage(params) {
+function ContactsListPage() {
   const dispatch = useDispatch();
 
   useEffect(() =>
@@ -23,3 +23,5 @@ export default function ContactsPage(params) {
     </Container>
   );
 };
+
+export default ContactsListPage;

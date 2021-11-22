@@ -8,13 +8,13 @@
 
 .btn {
   font-weight: 400;
-  font-size: 12px;
+  font-size: 10px;
 
   border-radius: 5px;
   border: 1px solid rgb(205, 205, 205);
   background-color: #fff;
 
-  padding: 3px 5px 3px 5px;
+  padding: 0px 5px;
 
   cursor: pointer;
 }

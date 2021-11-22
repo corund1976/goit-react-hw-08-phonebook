@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import Container from '../components/Container';
-import Section from '../components/Section';
-import ContactForm from '../components/ContactForm';
+import Container from 'components/Container';
+import Section from 'components/Section';
+import ContactForm from 'components/ContactForm';
 
-import { contactsOperations, } from '../redux/contacts';
+import { contactsOperations, } from 'redux/contacts';
 
-export default function ContactsPage(params) {
+function ContactFormPage() {
   const dispatch = useDispatch();
 
   useEffect(() =>
@@ -21,3 +21,5 @@ export default function ContactsPage(params) {
     </Container>
   );
 };
+
+export default ContactFormPage;

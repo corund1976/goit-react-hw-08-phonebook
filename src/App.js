@@ -5,16 +5,16 @@ import Loader from 'react-loader-spinner';
 
 import Container from 'components/Container';
 import Section from 'components/Section';
-import AppBar from 'components/AppBar';
-import PrivateRoute from 'components/PrivateRoute';
-import PublicRoute from 'components/PublicRoute';
+import { AppBar } from 'components/Nav';
+import { PrivateRoute } from 'components/Nav';
+import { PublicRoute } from 'components/Nav';
 import { authOperations, authSelectors } from 'redux/auth';
 
 const HomePage = lazy(() => import('pages/HomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
-const ContactsPage = lazy(() => import('pages/ContactsPage'));
-const EditPage = lazy(() => import('pages/EditPage'));
+const ContactsListPage = lazy(() => import('pages/ContactsListPage'));
+const ContactFormPage = lazy(() => import('pages/ContactFormPage'));
 
 function App() {
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
@@ -31,6 +31,7 @@ function App() {
         </div>
       ) : (
         <Section>
+            
           <AppBar />
             
           <Suspense fallback={
@@ -49,16 +50,16 @@ function App() {
                 <RegisterPage />
               </PublicRoute>
               
-              <PublicRoute exact path="/login" redirectTo="/contacts" restricted>
+              <PublicRoute exact path="/login" redirectTo="/contactslist" restricted>
                 <LoginPage />
               </PublicRoute>
               
-              <PrivateRoute path="/contacts" redirectTo="/login">
-                <ContactsPage />
+              <PrivateRoute path="/contactslist" redirectTo="/login">
+                <ContactsListPage />
                 </PrivateRoute>
                 
-              <PrivateRoute path="/edit" redirectTo="/login">
-                <EditPage />
+              <PrivateRoute path="/contactform" redirectTo="/login">
+                <ContactFormPage />
               </PrivateRoute>
                   
             </Switch>
