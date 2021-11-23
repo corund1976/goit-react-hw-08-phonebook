@@ -2,15 +2,14 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import s from './ContactList.module.css';
-import Contact from '../Contact';
+import Contact from 'components/Contact';
 import { contactsSelectors, contactsOperations } from 'redux/contacts';
 
-function ContactList() {
+function ContactList({onEditContact}) {
   const contactsToContactList = useSelector(contactsSelectors.getVisibleContacts);
-  const dispatch = useDispatch();
 
-  useEffect(() =>
-  dispatch(contactsOperations.getContacts()), [dispatch]);
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(contactsOperations.getContacts()), [dispatch]);
 
   return (
     <ul className={s.contactList}>
@@ -20,7 +19,8 @@ function ContactList() {
             <Contact
               name={name}
               number={number}
-              id={id}>
+              id={id}
+              onEditContact={onEditContact}>
             </Contact>
           </li>
         );

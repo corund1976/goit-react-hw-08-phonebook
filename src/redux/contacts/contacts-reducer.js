@@ -15,6 +15,7 @@ const contactsItemsReducer = createReducer(initialState.contacts.items, {
   [contactsOperations.getContacts.fulfilled]: (_, { payload }) => payload,
   [contactsOperations.addContact.fulfilled]: (state, { payload }) => [...state, payload],
   [contactsOperations.deleteContact.fulfilled]: (state, { payload }) => state.filter(({ id }) => id !== payload),
+  [contactsOperations.editContact.fulfilled]: (state, { payload }) => [...state.filter(({ id }) => id !== payload.id), payload],
 });
 
 const contactsFilterReducer = createReducer(initialState.contacts.filter, {

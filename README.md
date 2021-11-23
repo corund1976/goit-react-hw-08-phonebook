@@ -34,6 +34,9 @@ npm i @reduxjs/toolkit redux-persist react-redux react-router-dom@5.3.0 axios
     npm install react-loader-spinner --save
     yarn add react-loader-spinner
 
+10. Набор иконок react-icons
+    npm i react-icons
+
 xxxxxxxxxxxxxxxxxxxxxxxxxxx
 Деплой Netlify
 
