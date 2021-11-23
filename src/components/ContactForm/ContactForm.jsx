@@ -39,6 +39,8 @@ function ContactForm() {
       alert(`${name} is already in contacts.`)
       :
       dispatch(contactsOperations.addContact(contact));
+    
+    alert(`${name} successfully added.`)
     resetLocalState();
   };
 
