@@ -7,7 +7,7 @@ import Filter from 'components/Filter';
 import ContactList from 'components/ContactList';
 import ContactEdit from 'components/ContactEdit';
 
-import { contactsOperations, } from 'redux/contacts';
+import { contactsOperations } from 'redux/contacts';
 
 function ContactsListPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,8 +18,8 @@ function ContactsListPage() {
     setContactToEdit(contact);
   };
 
-  // const dispatch = useDispatch();
-  // useEffect(() => dispatch(contactsOperations.getContacts()), [dispatch]);
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(contactsOperations.getContacts()), [dispatch]);
 
   return (
     <Container>
